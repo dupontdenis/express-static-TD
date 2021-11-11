@@ -1,0 +1,18 @@
+extends layout
+ 
+mixin menu_item(menuItem)
+  li=menuItem.title
+    ul
+      each submenuItem in menuItem.subnav
+        li
+          a(href=`courses/${submenuItem.title}`)=submenuItem.title
+
+
+mixin menu(menu)
+  ul
+    each menuItem in menu
+      +menu_item(menuItem)
+
+block content
+  h1 Niveau / cours
+  +menu(menu)
