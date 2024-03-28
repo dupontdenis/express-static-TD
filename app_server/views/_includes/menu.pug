@@ -1,0 +1,17 @@
+mixin menu_item(menuItem)
+  // This mixin generates a menu item with a subnav
+  li=menuItem.title
+    ul
+      each submenuItem in menuItem.subnav
+        li
+          a(href=`courses/${submenuItem.title}`)=submenuItem.title
+
+mixin menu(menu)
+  // This mixin generates a menu
+  ul
+    each menuItem in menu
+      +menu_item(menuItem)
+
+mixin heading(text)
+  // This mixin generates a heading
+  h1=text

@@ -1,0 +1,6 @@
+mixin menu_item(menuItem)
+  li=menuItem.title
+    ul
+      each submenuItem in menuItem.subnav
+        li
+          a(href=`courses/${submenuItem.title}`)=submenuItem.title

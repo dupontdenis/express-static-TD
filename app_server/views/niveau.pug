@@ -1,29 +1,8 @@
-// This is a Pug file that extends the layout file
+
 extends layout
- 
-// This mixin generates a submenu item
-mixin submenu_item(submenuItem)
-  li
-    // Create a link for each submenu item
-    a(href=`courses/${submenuItem.title}`)=submenuItem.title
 
-// This mixin generates a menu item with a subnav
-mixin menu_item(menuItem)
-  li=menuItem.title
-    ul
-      // Iterate over each submenu item in the subnav
-      each submenuItem in menuItem.subnav
-        +submenu_item(submenuItem)
+include _includes/menu
 
-// This mixin generates a menu
-mixin menu(menu)
-  ul
-    // Iterate over each menu item in the menu
-    each menuItem in menu
-      +menu_item(menuItem)
-
-// This block generates the main content of the page
 block content
-  h1 Niveau / Cours
-  // Generate the menu
+  +heading('Niveau / Cours')
   +menu(menu)
